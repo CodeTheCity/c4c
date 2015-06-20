@@ -1,7 +1,30 @@
 $(document).ready(function()
 {
+	$(":checkbox").change(function()
+	{
+		updateTools();
+	});
+	/*
+	$(".toolsRequest").change(function()
+			{
+				//alert("requesting");
+			});
+			*/
 });
+
+function updateTools()
+{
+	$(":checkbox").each(function(i,elem)
+	{
+		if($(elem).is(":checked"))
+		{
+			alert($(elem).val());
+		}
+	});
+}
+
 /* google maps -----------------------------------------------------*/
+
 google.maps.event.addDomListener(window, 'load', initialize);
 
 function initialize() {

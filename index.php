@@ -4,12 +4,13 @@
 	$skills = array("pump", "shower");
 	array_walk($skills, function (&$v, $k) { $v = "'" . $v . "'"; });
 	$skillsQuery = implode($skills, ',');
-	$query = "SELECT * FROM users, links, services WHERE users.id=links.uid AND services.id=links.sid AND services.name IN ($skillsQuery)";
-	$res = mysqli_query("SELECT * FROM users WHERE users.id=links.uid AND services.id=links.sid AND services.name IN ($skillsQuery)");
+	//$query = "SELECT u.name, u.location FROM users u, links, services s WHERE u.id=links.uid AND s.id=links.sid AND s.name IN ($skillsQuery)";
+	$res = $mysqli->query("SELECT u.name, u.location FROM users u,links,services s WHERE u.id=links.uid AND s.id=links.sid AND s.name IN ($skillsQuery)");
 	$results = "";
-	while($row = mysql_fetch_assoc($res))
+	while($row = mysqli_fetch_assoc($res))
 	{
-		echo $row["name"];
+		$results .= $row["name"] . " - " . $row["location"];
+		$results .= "<br/>";
 	}
 ?>
 
@@ -24,10 +25,12 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="c4c.js"></script>
 
 
 </head>
 <body>
+<div id="demo"><?=$results?></div>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -61,7 +64,6 @@
     <h1>My first Bootstrap website!</h1>
 <br>
  
-<div id="demo"></div>
 
   <div class="row">
 <div class="col-md-3">

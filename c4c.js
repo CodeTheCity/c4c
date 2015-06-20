@@ -4,6 +4,9 @@ $(document).ready(function()
 	{
 		updateTools();
 	});
+
+	if(navigator.geolocation)
+		navigator.geolocation.getCurrentPosition(handleGetCurrentPosition, onError);
 	/*
 	$(".toolsRequest").change(function()
 			{
@@ -12,15 +15,37 @@ $(document).ready(function()
 			*/
 });
 
+function handleGetCurrentPosition(location)
+{
+	alert("" + location.coords.longitude + "," + location.coords.latitude);
+}
+
+function onError()
+{
+	alert("errror");
+}
+
 function updateTools()
 {
+	var selectedTools = "";
 	$(":checkbox").each(function(i,elem)
 	{
 		if($(elem).is(":checked"))
 		{
-			alert($(elem).val());
+			selectedTools += $(elem).val() + ",";
 		}
 	});
+	selectedTools = selectedTools.substring(0, selectedTools.length - 1);
+
+	$.get("ajax.php", {keywords: selectedTools}, function(data)
+			{
+				var htmlString = "";
+				$(data).each(function(i, val)
+						{
+							htmlString += "Name: " + (val[0]) + ", location: " + val[1] + "<br/>";
+						});
+				$("#demo").html(htmlString);
+			}, "json");
 }
 
 /* google maps -----------------------------------------------------*/

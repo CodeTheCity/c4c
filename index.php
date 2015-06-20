@@ -1,5 +1,6 @@
 <?php
 	//https://github.com/lunaroverlord/c4c.git
+/*
 	$mysqli = new mysqli("lunaroverlord.cn3imgfeosz7.eu-west-1.rds.amazonaws.com", "maksis", "esmugejs", "c4c");
 	$skills = array("pump", "shower");
 	array_walk($skills, function (&$v, $k) { $v = "'" . $v . "'"; });
@@ -12,7 +13,9 @@
 		$results .= $row["name"] . " - " . $row["location"];
 		$results .= "<br/>";
 	}
+ */
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +61,7 @@
 </nav>
   
 <div class="container">
-<img src="http://i62.tinypic.com/23kpx0z.png" width="100%">
+<img src="logo.png" width="50%">
 
     
     <h1>Welcome to cyclists4cyclists!</h1>

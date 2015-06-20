@@ -6,6 +6,7 @@
 	$skillsQuery = implode($skills, ',');
 	$query = "SELECT * FROM users, links, services WHERE users.id=links.uid AND services.id=links.sid AND services.name IN ($skillsQuery)";
 	$res = mysqli_query("SELECT * FROM users WHERE users.id=links.uid AND services.id=links.sid AND services.name IN ($skillsQuery)");
+	$results = "";
 	while($row = mysql_fetch_assoc($res))
 	{
 		echo $row["name"];

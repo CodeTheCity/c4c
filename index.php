@@ -5,8 +5,11 @@
 	array_walk($skills, function (&$v, $k) { $v = "'" . $v . "'"; });
 	$skillsQuery = implode($skills, ',');
 	$query = "SELECT * FROM users, links, services WHERE users.id=links.uid AND services.id=links.sid AND services.name IN ($skillsQuery)";
-	echo $query;
-	//$res = mysqli_query("SELECT * FROM users WHERE users.id=links.uid AND services.id=links.sid AND services.name IN ($skillsQuery)");
+	$res = mysqli_query("SELECT * FROM users WHERE users.id=links.uid AND services.id=links.sid AND services.name IN ($skillsQuery)");
+	while($row = mysql_fetch_assoc($res))
+	{
+		echo $row["name"];
+	}
 ?>
 
 <!DOCTYPE html>
@@ -15,11 +18,60 @@
   <title>Bootstrap Case</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="c4c.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+<script> 
+
+/* google maps -----------------------------------------------------*/
+google.maps.event.addDomListener(window, 'load', initialize);
+
+function initialize() {
+
+  /* position Amsterdam */
+  var latlng = new google.maps.LatLng(52.3731, 4.8922);
+
+  var mapOptions = {
+    center: latlng,
+    scrollWheel: false,
+    zoom: 13
+  };
+  
+  var marker = new google.maps.Marker({
+    position: latlng,
+    url: '/',
+    animation: google.maps.Animation.DROP
+  });
+  
+  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  marker.setMap(map);
+
+
+
+
+
+
+
+  var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+ function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+ }
+
+};
+/* end google maps -----------------------------------------------------*/
+
+</script>
 </head>
 <body>
 
@@ -124,6 +176,7 @@ body{
     <h1>My first Bootstrap website!</h1>
 <br>
  
+<div id="demo"></div>
 
   <div class="row">
 <div class="col-md-3">
@@ -224,35 +277,6 @@ body{
 
 </div>
 
-<script> 
-
-/* google maps -----------------------------------------------------*/
-google.maps.event.addDomListener(window, 'load', initialize);
-
-function initialize() {
-
-  /* position Amsterdam */
-  var latlng = new google.maps.LatLng(52.3731, 4.8922);
-
-  var mapOptions = {
-    center: latlng,
-    scrollWheel: false,
-    zoom: 13
-  };
-  
-  var marker = new google.maps.Marker({
-    position: latlng,
-    url: '/',
-    animation: google.maps.Animation.DROP
-  });
-  
-  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-  marker.setMap(map);
-
-};
-/* end google maps -----------------------------------------------------*/
-
-</script>
 
 </body>
 </html>

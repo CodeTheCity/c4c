@@ -1,3 +1,13 @@
+<?php
+	//https://github.com/lunaroverlord/c4c.git
+	$mysqli = new mysqli("lunaroverlord.cn3imgfeosz7.eu-west-1.rds.amazonaws.com", "maksis", "esmugejs", "c4c");
+	$skills = array("pump", "shower");
+	array_walk($skills, function (&$v, $k) { $v = "'" . $v . "'"; });
+	$skillsQuery = implode($skills, ',');
+	$query = "SELECT * FROM users, links, services WHERE users.id=links.uid AND services.id=links.sid AND services.name IN ($skillsQuery)";
+	echo $query;
+	//$res = mysqli_query("SELECT * FROM users WHERE users.id=links.uid AND services.id=links.sid AND services.name IN ($skillsQuery)");
+?>
 <!doctype html>
 <html>
 <head>

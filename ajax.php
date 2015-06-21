@@ -6,9 +6,9 @@
 	$kwList = explode(",",$keywords);
 	array_walk($kwList, function (&$v, $k) { $v = "'" . $v . "'"; });
 	$housesQuery = implode($kwList, ',');
-	$query = "SELECT u.name, u.location FROM users u, links, services s WHERE u.id=links.uid AND s.id=links.sid AND s.name IN ($housesQuery)";
+	$query = "SELECT u.name, GROUP_CONCAT(CAST(links.sid as CHAR)) as offers, u.location FROM users u,links,services s WHERE u.id=links.uid AND s.id=links.sid AND s.name IN ($housesQuery) GROUP BY u.name";
 	//echo $query;
-	$res = $mysqli->query("SELECT u.name, u.location FROM users u,links,services s WHERE u.id=links.uid AND s.id=links.sid AND s.name IN ($housesQuery)");
+	$res = $mysqli->query($query);
 	$results = array();
 	while($row = mysqli_fetch_assoc($res))
 	{

@@ -131,7 +131,7 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="#">Find your cycle buddy!</a></li>
                 </ul>
-	    <div id="map" class="map"></div>
+	    <div id="map" class="map"><div id="popup"></div></div>
 	    <script src="js.js"></script>
             </div>
         </div>

@@ -106,7 +106,6 @@ height: 500px;
 width: 100%;
 }
 
-
 html, body,
 .container,
 .cbp-fbscroller,
@@ -131,4 +130,10 @@ html, body,
 #fbsection2 {
 	background-image: url(city.jpg);
 	opacity: 0.90;
+}
+=======
+.popover-content
+{
+	text-align: center;
+	width: 120px;
 }

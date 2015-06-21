@@ -43,6 +43,7 @@ $(document).ready(function()
 		if(navigator.geolocation)
 			navigator.geolocation.getCurrentPosition(handleGetCurrentPosition, onError);
 
+  	popup();
 	});
 });
 
@@ -105,7 +106,7 @@ var iconFeatures=[];
         var iconFeature = new ol.Feature({
           geometry: new ol.geom.Point(ol.proj.transform([parseFloat(coord[1]), parseFloat(coord[0])], 'EPSG:4326',     
             'EPSG:3857')),
-          name: 'Fellow Cyclist'
+          name: array[i][0]
         });
         iconFeatures.push(iconFeature);
       }
@@ -123,7 +124,7 @@ var iconFeatures=[];
       anchorYUnits: 'pixels',
       opacity: 1.0,
       scale: 1.0,
-      src: 'biker.png'
+      src: 'biker.jpg'
     }))
   });
 
@@ -200,9 +201,9 @@ function setUserMarker(long, lat)
 	      anchor: [0.5, 46],
 	      anchorXUnits: 'fraction',
 	      anchorYUnits: 'pixels',
-	      opacity: 0.75,
-	      scale: 0.75,
-	      src: 'userCyclist.png'
+	      opacity: 1.0,
+	      scale: 1.0,
+	      src: 'me.png'
 	    }))
 	  });
 
@@ -214,6 +215,53 @@ function setUserMarker(long, lat)
 	  map.addLayer(vectorLayer);
 }
 
+
+function popup(){
+	//alert("test");
+	var element = document.getElementById('popup');
+
+	var popup = new ol.Overlay({
+		offset:  [0, -30],
+		element: element,
+		positioning: 'top-center',
+		stopEvent: false
+	});
+
+	map.addOverlay(popup);
+
+	map.on('click', function(evt) {
+		var feature = map.forEachFeatureAtPixel(evt.pixel,
+			function(feature, layer) {
+				return feature;
+			});
+		if (feature) {
+			var geometry = feature.getGeometry();
+			var coord = geometry.getCoordinates();
+			popup.setPosition(coord);
+
+			//alert(feature.get("name"));
+			$(element).popover({
+				'placement': 'top',
+				'html': true,
+				'animation' : true,
+				'content': feature.get('name') + "<br/><button type=\"button\">Contact</button>"
+			});
+			$(element).popover('show');
+		} else {
+			$(element).popover('destroy');
+		}
+	});
+
+	map.on('pointermove', function(e) {
+		if (e.dragging) {
+			$(element).popover('destroy');
+			return;
+		}
+		var pixel = map.getEventPixel(e.originalEvent);
+		//var hit = map.hasFeatureAtPixel(pixel);
+		//map.getTarget().style.cursor = hit ? 'pointer' : '';
+	});
+}
 
 /* google maps -----------------------------------------------------*/
 

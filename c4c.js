@@ -106,7 +106,7 @@ var iconFeatures=[];
         var iconFeature = new ol.Feature({
           geometry: new ol.geom.Point(ol.proj.transform([parseFloat(coord[1]), parseFloat(coord[0])], 'EPSG:4326',     
             'EPSG:3857')),
-          name: array[i][0]
+          name: array[i][0] + "<br/><span style='font-size:11px'>" + array[i][2] + "</span>"
         });
         iconFeatures.push(iconFeature);
       }
@@ -240,10 +240,11 @@ function popup(){
 			popup.setPosition(coord);
 
 			//alert(feature.get("name"));
+			$(element).popover('destroy');
 			$(element).popover({
 				'placement': 'top',
 				'html': true,
-				'animation' : true,
+				'animation' : false,
 				'content': feature.get('name') + "<br/><button type=\"button\">Contact</button>"
 			});
 			$(element).popover('show');

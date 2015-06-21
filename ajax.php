@@ -12,7 +12,15 @@
 	$results = array();
 	while($row = mysqli_fetch_assoc($res))
 	{
-		$results[] = array($row["name"], $row["location"]);
+		$offers = explode(",", $row["offers"]);
+		$offerTools = "";
+		foreach($offers as $offer)
+		{
+			$res2 = $mysqli->query("SELECT * FROM services WHERE id=$offer");
+			$row2 = mysqli_fetch_assoc($res2);
+			$offerTools .= $row2["name"] . ",";
+		}
+		$results[] = array($row["name"], $row["location"], rtrim($offerTools, ","));
 	}
 	echo json_encode($results);
 ?>

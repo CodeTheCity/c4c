@@ -153,15 +153,15 @@
                         </div> </div>
 
                         <div class="col-xs-4" option>
-                            <i class="fa fa-male fa-5x"></i>
+                            <i class="fa fa-umbrella fa-5x"></i>
                         <div class="checkbox">
-                        <label class="checkbox-inline option"><input type="checkbox" value="male">Male</label>
+                        <label class="checkbox-inline option"><input type="checkbox" value="umbrella">Umbrella</label>
                         </div> </div>
 
                         <div class="col-xs-4" option>
-                            <i class="fa fa-female fa-5x"></i>
+                            <i class="fa fa-lock-alt fa-5x"></i>
                         <div class="checkbox">
-                        <label class="checkbox-inline option"><input type="checkbox" value="female">Female</label>
+                        <label class="checkbox-inline option"><input type="checkbox" value="locks">Locks</label>
                         </div> </div>
                     </div>
 

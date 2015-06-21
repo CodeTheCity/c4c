@@ -80,8 +80,6 @@
 
 
                     <div class="container-fluid">
-
-
                              <div class="col-xs-4" option>
                             <i class="fa fa-home fa-5x"></i>
 
@@ -102,7 +100,6 @@
 
                         <label class="checkbox-inline"><input type="checkbox" value="kit">Toolkit</label>
                         </div> </div>
-
                     </div>
 
                     <div class="container-fluid">
@@ -123,7 +120,26 @@
                         <div class="checkbox">
                         <label class="checkbox-inline option"><input type="checkbox" value="wifi">Wifi</label>
                         </div> </div>
+                    </div>
 
+                                        <div class="container-fluid">
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-bed fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline"><input type="checkbox" value="bed">Rest</label>
+                        </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-birthday-cake fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline option"><input type="checkbox" value="cake">Celebrate</label>
+                        </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-bicycle fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline option"><input type="checkbox" value="bicycle">Bicycle</label>
+                        </div> </div>
                     </div>
 
                 </ul>

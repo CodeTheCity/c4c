@@ -106,7 +106,7 @@ var iconFeatures=[];
         var iconFeature = new ol.Feature({
           geometry: new ol.geom.Point(ol.proj.transform([parseFloat(coord[1]), parseFloat(coord[0])], 'EPSG:4326',     
             'EPSG:3857')),
-          name: array[i][0] + "<br/><span style='font-size:11px'>" + array[i][2] + "</span>"
+          name: array[i][0] + "<br/><span style='font-size:11px'>" + array[i][2].replace(",", ", ") + "</span>"
         });
         iconFeatures.push(iconFeature);
       }

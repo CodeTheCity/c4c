@@ -25,6 +25,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="c4c.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="http://openlayers.org/en/v3.1.1/css/ol.css" type="text/css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -61,9 +62,13 @@
     </div>
   </div>
 </nav>
+
+    <div id="cbp-fbscroller" class="cbp-fbscroller">
+	<section id="fbsection1"></section>
+	<section id="fbsection2"></section>
+</div>
   
 <div class="container">
-<img src="logo.png" width="50%">
 
     
     <h1>Welcome to cyclists4cyclists!</h1>

@@ -121,7 +121,7 @@ var iconFeatures=[];
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      opacity: 0.75,
+      opacity: 1.0,
       scale: 1.0,
       src: 'biker.png'
     }))
@@ -167,7 +167,7 @@ function setParkingMarkers(array){
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      opacity: 0.75,
+      opacity: 1.00,
       scale: 0.75,
       src: 'http://google-maps-icons.googlecode.com/files/bicycleparking.png'
     }))

@@ -76,3 +76,8 @@ body{
     bottom:0;
     overflow:hidden;
 }
+
+.map {
+height: 400px;
+width: 100%;
+}

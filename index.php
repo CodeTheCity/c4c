@@ -25,9 +25,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="c4c.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://openlayers.org/en/v3.1.1/css/ol.css" type="text/css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://openlayers.org/en/v3.1.1/build/ol.js" type="text/javascript"></script>
   <script src="c4c.js"></script>
 
 
@@ -67,6 +69,8 @@
     <h1>Welcome to cyclists4cyclists!</h1>
 <br>
  
+    <div id="map" class="map"></div>
+    <script src="js.js"></script>
 
   <div class="row">
 <div class="col-md-5">

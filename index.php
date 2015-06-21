@@ -159,7 +159,7 @@
                         </div> </div>
 
                         <div class="col-xs-4" option>
-                            <i class="fa fa-lock-alt fa-5x"></i>
+                            <i class="fa fa-unlock-alt fa-5x"></i>
                         <div class="checkbox">
                         <label class="checkbox-inline option"><input type="checkbox" value="locks">Locks</label>
                         </div> </div>

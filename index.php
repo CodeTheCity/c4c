@@ -142,6 +142,26 @@
                         </div> </div>
                     </div>
 
+<div class="container-fluid">
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-futbol-o fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline"><input type="checkbox" value="soccer">Sports</label>
+                        </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-male fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline option"><input type="checkbox" value="male">Male</label>
+                        </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-female fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline option"><input type="checkbox" value="female">Female</label>
+                        </div> </div>
+                    </div>
+
                 </ul>
             </div>
             <div class="col-md-7">

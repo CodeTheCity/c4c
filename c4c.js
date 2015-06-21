@@ -9,8 +9,6 @@ $(document).ready(function()
 		updateTools();
 	});
 
-	if(navigator.geolocation)
-		navigator.geolocation.getCurrentPosition(handleGetCurrentPosition, onError);
 	/*
 	$(".toolsRequest").change(function()
 			{
@@ -18,7 +16,17 @@ $(document).ready(function()
 			});
 			*/
 
-	//Get map
+
+	//Create map
+	  window.map = new ol.Map({
+	    target: 'map',
+	    layers: [
+	    new ol.layer.Tile({
+	      source: new ol.source.OSM
+	    }) ]
+	  });
+
+	//Get map data
 	$.get("https://raw.githubusercontent.com/lunaroverlord/c4c/master/export.geojson", function(data) {
 	  var json = JSON.parse(data);
 	  var coords = [];
@@ -28,14 +36,29 @@ $(document).ready(function()
 	    } else
 	    coords.push(json.features[i].geometry.coordinates[0][0]);
 	  };
-	  setMarkers(coords);
+	  setParkingMarkers(coords);
+
+	  //Get position on map
+		if(navigator.geolocation)
+			navigator.geolocation.getCurrentPosition(handleGetCurrentPosition, onError);
+
 	});
 });
 
+function centerMap(long, lat)
+{
+    console.log("Long: " + long + " Lat: " + lat);
+    map.getView().setCenter(ol.proj.transform([long, lat], 'EPSG:4326', 'EPSG:3857'));
+    map.getView().setZoom(17);
+}
+
 function handleGetCurrentPosition(location)
 {
-	currentLocation = location;
-	//alert("" + location.coords.longitude + "," + location.coords.latitude);
+	centerMap(location.coords.longitude, location.coords.latitude);
+	
+	  setUserMarker(location.coords.longitude, location.coords.latitude);
+	
+	//	alert("" + location.coords.longitude + "," + location.coords.latitude);
 }
 
 function onError()
@@ -66,7 +89,50 @@ function updateTools()
 	}, "json");
 }
 
-function setMarkers(array){
+function setCommunityMarkers(array)
+{
+var iconFeatures=[];
+
+  for (var i = 0; i < array.length; i++) {
+    if(array[i] !== undefined){
+      if (array[i].length>=2){
+        var coord = array[i];
+
+        var iconFeature = new ol.Feature({
+          geometry: new ol.geom.Point(ol.proj.transform([coord[0], coord[1]], 'EPSG:4326',     
+            'EPSG:3857')),
+          name: 'Bike parking'
+        });
+        iconFeatures.push(iconFeature);
+      }
+    }
+  };
+
+  var vectorSource = new ol.source.Vector({
+    features: iconFeatures
+  });
+
+  var iconStyle = new ol.style.Style({
+    image: new ol.style.Icon(({
+      anchor: [0.5, 46],
+      anchorXUnits: 'fraction',
+      anchorYUnits: 'pixels',
+      opacity: 0.75,
+      scale: 0.75,
+      src: 'http://google-maps-icons.googlecode.com/files/bicycleparking.png'
+    }))
+  });
+
+  var vectorLayer = new ol.layer.Vector({
+    source: vectorSource,
+    style: iconStyle
+  });
+
+  map.addLayer(vectorLayer);
+
+}
+
+function setParkingMarkers(array){
   var iconFeatures=[];
 
   for (var i = 0; i < array.length; i++) {
@@ -104,27 +170,50 @@ function setMarkers(array){
     style: iconStyle
   });
 
-  map = new ol.Map({
-    target: 'map',
-    layers: [
-    new ol.layer.Tile({
-      source: new ol.source.OSM
-    }), vectorLayer
-    ],
-    view: new ol.View({
-      center: ol.proj.transform([-3.1839465, 55.9449353], 'EPSG:4326', 'EPSG:3857'),
-      zoom: 11
-    })
-  });
+  map.addLayer(vectorLayer);
 }
+
+function setUserMarker(long, lat)
+{
+	var iconFeatures=[];
+	var iconFeature = new ol.Feature({
+	  geometry: new ol.geom.Point(ol.proj.transform([long, lat], 'EPSG:4326',     
+	    'EPSG:3857')),
+	  name: 'Your location'
+	});
+	iconFeatures.push(iconFeature);
+
+	  var vectorSource = new ol.source.Vector({
+	    features: iconFeatures
+	  });
+
+	  var iconStyle = new ol.style.Style({
+	    image: new ol.style.Icon(({
+	      anchor: [0.5, 46],
+	      anchorXUnits: 'fraction',
+	      anchorYUnits: 'pixels',
+	      opacity: 0.75,
+	      scale: 0.75,
+	      src: 'userCyclist.png'
+	    }))
+	  });
+
+	  var vectorLayer = new ol.layer.Vector({
+	    source: vectorSource,
+	    style: iconStyle
+	  });
+
+	  map.addLayer(vectorLayer);
+}
+
 
 /* google maps -----------------------------------------------------*/
 
+/*
 google.maps.event.addDomListener(window, 'load', initialize);
 
 function initialize() {
 
-  /* position Amsterdam */
   var latlng = new google.maps.LatLng(52.3731, 4.8922);
 
   var mapOptions = {
@@ -156,4 +245,5 @@ function getLocation() {
  }
 
 };
+*/
 /* end google maps -----------------------------------------------------*/

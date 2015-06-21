@@ -77,28 +77,23 @@ body{
     overflow:hidden;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
+
+html, body {
+  height: 100%;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
+  padding: 0;
+  margin: 0;
 }
 
-
-.option {
-	text-align:center;
+#full-screen-background-image {
+  z-index: -999;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .col-xs-4
@@ -111,6 +106,32 @@ height: 500px;
 width: 100%;
 }
 
+html, body,
+.container,
+.cbp-fbscroller,
+.cbp-fbscroller section {
+	height: 100%;
+}
+
+/* background-attachment does the trick */
+.cbp-fbscroller section {
+	position: relative;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+#fbsection1 {
+	background-image: url(bike.jpg);
+
+}
+
+#fbsection2 {
+	background-image: url(city.jpg);
+	opacity: 0.90;
+}
+=======
 .popover-content
 {
 	text-align: center;

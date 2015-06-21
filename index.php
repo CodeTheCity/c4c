@@ -40,9 +40,7 @@
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">cyclists4cyclists</a>
-    </div>
+    <div class="navbar-header"> </div>
     <div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
@@ -62,17 +60,16 @@
     </div>
   </div>
 </nav>
-
     <div id="cbp-fbscroller" class="cbp-fbscroller">
-	<section id="fbsection1"></section>
+	<section id="fbsection1">
+		<div class="bike"></div>
+	</section >
 	<section id="fbsection2"></section>
 </div>
   
 <div class="container">
 
     
-    <h1>Welcome to cyclists4cyclists!</h1>
-<br>
  
 <div class="container">
         <br>

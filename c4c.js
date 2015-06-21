@@ -2,6 +2,7 @@
 var map;
 var currentLocation;
 var communityLayer;
+var parkingSpots;
 
 $(document).ready(function()
 {
@@ -37,6 +38,7 @@ $(document).ready(function()
 	    } else
 	    coords.push(json.features[i].geometry.coordinates[0][0]);
 	  };
+	  parkingSpots = coords;
 	  setParkingMarkers(coords);
 
 	  //Get position on map

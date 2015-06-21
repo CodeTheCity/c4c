@@ -50,6 +50,14 @@ body{
 	background-size: 100%;
 }
 
+.navhead
+{
+	background: url(title.jpg);
+	width: 250px;
+	height: 32px;
+
+}
+
 .navbar-custom .icon-bar {
 	background-color:#fff;
 }

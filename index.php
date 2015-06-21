@@ -39,8 +39,8 @@
 <div id="demo"><?=$results?></div>
 
 <nav class="navbar navbar-inverse">
+    <div class="navhead"></div>
   <div class="container-fluid">
-    <div class="navbar-header"> </div>
     <div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>

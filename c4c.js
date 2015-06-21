@@ -200,9 +200,9 @@ function setUserMarker(long, lat)
 	      anchor: [0.5, 46],
 	      anchorXUnits: 'fraction',
 	      anchorYUnits: 'pixels',
-	      opacity: 0.75,
-	      scale: 0.75,
-	      src: 'userCyclist.png'
+	      opacity: 1.0,
+	      scale: 1.0,
+	      src: 'me.png'
 	    }))
 	  });
 

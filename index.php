@@ -39,7 +39,7 @@
 <div id="demo"><?=$results?></div>
 
 <nav class="navbar navbar-inverse">
-    <div class="navhead"></div>
+    <div class="navhead"> <div class="cyclogo"></div> </div>
   <div class="container-fluid">
     <div>
       <ul class="nav navbar-nav">

@@ -46,6 +46,7 @@ body{
 
 .bike
 {
+	display: none;
 	position: fixed;
 	width: 200px;
 	height: 200px;
@@ -55,13 +56,23 @@ body{
 	background-size: 100%;
 }
 
+.cyclogo
+{
+	background: url(cyclogo.png);
+	display: block;
+	margin: auto;
+	width: 55px;
+	height:38px;
+	float: right;
+}
+
 .navhead
 {
 	display: block;
 	margin: auto;
-	background: url(title.jpg);
+	background: url(title.jpg) no-repeat;
 	margin-top: 6px;
-	width: 300px;
+	width: 367px;
 	height: 36px;
 
 }

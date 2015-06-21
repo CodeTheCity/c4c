@@ -18,83 +18,116 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Bootstrap Case</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="c4c.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <script src="c4c.js"></script>
-    </head>
-    <body>
-        <div id="demo"><?=$results?></div>
 
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">cyclists4cyclists</a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">About <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">About</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Contacts</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><i class="fa fa-user"></i> Sign Up</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<head>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="c4c.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://openlayers.org/en/v3.1.1/css/ol.css" type="text/css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://openlayers.org/en/v3.1.1/build/ol.js" type="text/javascript"></script>
+  <script src="c4c.js"></script>
 
-        <div class="container">
+
+</head>
+<body>
+<div id="demo"><?=$results?></div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">cyclists4cyclists</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">About <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contacts</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><i class="fa fa-user"></i> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container">
+<img src="logo.png" width="50%">
+
+    
+    <h1>Welcome to cyclists4cyclists!</h1>
+<br>
+ 
+    <div id="map" class="map"></div>
+    <script src="js.js"></script>
+<div class="container">
         <img src="logo.png" width="50%">
         <h1>Welcome to cyclists4cyclists!</h1>
         <br>
         <div class="row">
             <div class="col-md-5">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#">What you need!</a></li>
+                    <li class="active"><a href="#">What you need!</a></li> <br>
+
+
                     <div class="container-fluid">
 
-                        <div class="col-xs-4">
-                        <div class="checkbox">
-                        <label class="checkbox-inline"><input type="checkbox" value="shower">Shower</label>
-                        <div> </div>
-                        <div class="col-xs-4">
-                        <div class="checkbox">
-                        <label class="checkbox-inline"><input type="checkbox" value="kit">Bike Toolkit</label>
-                        <div></div>
-                        <div class="col-xs-4">
-                        <div class="checkbox">
-                        <label class="checkbox-inline"><input type="checkbox" value="pump">Air Pump</label>
-                        <div></div>
 
-                    </div>
-                    <div class="container-fluid">
+                             <div class="col-xs-4" option>
+                            <i class="fa fa-home fa-5x"></i>
 
-                        <div class="col-xs-4">
                         <div class="checkbox">
-                        <label class="checkbox-inline"><input type="checkbox" value="tire">Spare tire</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="shelter">Shelter</label>
                         </div> </div>
-                        <div class="checkbox">
-                        <div class="col-xs-4">
-                        <label class="checkbox-inline"><input type="checkbox" value="shower">Shelter</label>
-                        </div> </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-cutlery fa-5x"></i>
+
                         <div class="checkbox">
                         <label class="checkbox-inline"><input type="checkbox" value="house">Hospitality</label>
                         </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-wrench fa-5x"></i>
+
+                        <div class="checkbox">
+
+                        <label class="checkbox-inline"><input type="checkbox" value="kit">Toolkit</label>
+                        </div> </div>
+
                     </div>
+
+                    <div class="container-fluid">
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-comments fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline"><input type="checkbox" value="chat">Chatter</label>
+                        </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <img src="shower.png" width="60%">
+                        <div class="checkbox">
+                        <label class="checkbox-inline option"><input type="checkbox" value="shower">Shower</label>
+                        </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-signal fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline option"><input type="checkbox" value="wifi">Wifi</label>
+                        </div> </div>
+
+                    </div>
+
                 </ul>
             </div>
             <div class="col-md-7">
@@ -103,10 +136,7 @@
                 </ul>
             </div>
         </div>
+            </div>
+
+
     </body>
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">Place sticky footer content here.</p>
-        </div>
-    </footer>
-</html>

@@ -77,6 +77,7 @@ body{
     overflow:hidden;
 }
 
+<<<<<<< HEAD
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -100,3 +101,9 @@ body {
 .option {
 	text-align:center;
 }
+=======
+.map {
+height: 400px;
+width: 100%;
+}
+>>>>>>> ce8f6bd8320827977118253533d0dd5aa15a23d6

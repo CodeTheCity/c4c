@@ -110,3 +110,9 @@ body {
 height: 500px;
 width: 100%;
 }
+
+.popover-content
+{
+	text-align: center;
+	width: 120px;
+}

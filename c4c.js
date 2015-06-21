@@ -1,6 +1,7 @@
 
 var map;
 var currentLocation;
+var communityLayer;
 
 $(document).ready(function()
 {
@@ -81,11 +82,14 @@ function updateTools()
 	$.get("ajax.php", {keywords: selectedTools}, function(data)
 	{
 		var htmlString = "";
+		var coords = [];
 		$(data).each(function(i, val)
 		{
+			coords.push(val);
 			htmlString += "Name: " + (val[0]) + ", location: " + val[1] + "<br/>";
 		});
 		$("#demo").html(htmlString);
+		setCommunityMarkers(coords);
 	}, "json");
 }
 
@@ -96,10 +100,10 @@ var iconFeatures=[];
   for (var i = 0; i < array.length; i++) {
     if(array[i] !== undefined){
       if (array[i].length>=2){
-        var coord = array[i];
+        var coord = array[i][1].split(",");
 
         var iconFeature = new ol.Feature({
-          geometry: new ol.geom.Point(ol.proj.transform([coord[0], coord[1]], 'EPSG:4326',     
+          geometry: new ol.geom.Point(ol.proj.transform([parseFloat(coord[1]), parseFloat(coord[0])], 'EPSG:4326',     
             'EPSG:3857')),
           name: 'Fellow Cyclist'
         });
@@ -118,8 +122,8 @@ var iconFeatures=[];
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
       opacity: 0.75,
-      scale: 0.75,
-      src: 'http://google-maps-icons.googlecode.com/files/bicycleparking.png'
+      scale: 1.0,
+      src: 'biker.png'
     }))
   });
 
@@ -127,6 +131,10 @@ var iconFeatures=[];
     source: vectorSource,
     style: iconStyle
   });
+
+  if(communityLayer != undefined)
+	  map.removeLayer(communityLayer);
+  communityLayer = vectorLayer;
 
   map.addLayer(vectorLayer);
 

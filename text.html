@@ -1,30 +1,15 @@
-<?php
-    //https://github.com/lunaroverlord/c4c.git
-    /*
-    $mysqli = new mysqli("lunaroverlord.cn3imgfeosz7.eu-west-1.rds.amazonaws.com", "maksis", "esmugejs", "c4c");
-    $skills = array("pump", "shower");
-    array_walk($skills, function (&$v, $k) { $v = "'" . $v . "'"; });
-    $skillsQuery = implode($skills, ',');
-    //$query = "SELECT u.name, u.location FROM users u, links, services s WHERE u.id=links.uid AND s.id=links.sid AND s.name IN ($skillsQuery)";
-    $res = $mysqli->query("SELECT u.name, u.location FROM users u,links,services s WHERE u.id=links.uid AND s.id=links.sid AND s.name IN ($skillsQuery)");
-    $results = "";
-    while($row = mysqli_fetch_assoc($res))
-    {
-    	$results .= $row["name"] . " - " . $row["location"];
-    	$results .= "<br/>";
-    }
-    */
-    ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Bootstrap Case</title>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="stylesheet" href="c4c.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="c4c.js"></script>
@@ -63,38 +48,56 @@
         <div class="row">
             <div class="col-md-5">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#">What you need!</a></li>
+                    <li class="active"><a href="#">What you need!</a></li> <br>
+
+
                     <div class="container-fluid">
 
-                        <div class="col-xs-4">
-                        <div class="checkbox">
-                        <label class="checkbox-inline"><input type="checkbox" value="shower">Shower</label>
-                        <div> </div>
-                        <div class="col-xs-4">
-                        <div class="checkbox">
-                        <label class="checkbox-inline"><input type="checkbox" value="kit">Bike Toolkit</label>
-                        <div></div>
-                        <div class="col-xs-4">
-                        <div class="checkbox">
-                        <label class="checkbox-inline"><input type="checkbox" value="pump">Air Pump</label>
-                        <div></div>
 
-                    </div>
-                    <div class="container-fluid">
+                             <div class="col-xs-4" option>
+                            <i class="fa fa-home fa-5x"></i>
 
-                        <div class="col-xs-4">
                         <div class="checkbox">
-                        <label class="checkbox-inline"><input type="checkbox" value="tire">Spare tire</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="shelter">Shelter</label>
                         </div> </div>
-                        <div class="checkbox">
-                        <div class="col-xs-4">
-                        <label class="checkbox-inline"><input type="checkbox" value="shower">Shelter</label>
-                        </div> </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-cutlery fa-5x"></i>
+
                         <div class="checkbox">
                         <label class="checkbox-inline"><input type="checkbox" value="house">Hospitality</label>
                         </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-wrench fa-5x"></i>
+
+                        <div class="checkbox">
+
+                        <label class="checkbox-inline"><input type="checkbox" value="kit">Toolkit</label>
+                        </div> </div>
+
                     </div>
+
+                    <div class="container-fluid">
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-comments fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline"><input type="checkbox" value="chat">Chatter</label>
+                        </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <img src="shower.png" width="60%">
+                        <div class="checkbox">
+                        <label class="checkbox-inline option"><input type="checkbox" value="shower">Shower</label>
+                        </div> </div>
+
+                        <div class="col-xs-4" option>
+                            <i class="fa fa-signal fa-5x"></i>
+                        <div class="checkbox">
+                        <label class="checkbox-inline option"><input type="checkbox" value="wifi">Wifi</label>
+                        </div> </div>
+
+                    </div>
+
                 </ul>
             </div>
             <div class="col-md-7">
@@ -103,10 +106,8 @@
                 </ul>
             </div>
         </div>
+            
+
     </body>
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">Place sticky footer content here.</p>
-        </div>
-    </footer>
+
 </html>

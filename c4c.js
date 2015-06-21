@@ -101,7 +101,7 @@ var iconFeatures=[];
         var iconFeature = new ol.Feature({
           geometry: new ol.geom.Point(ol.proj.transform([coord[0], coord[1]], 'EPSG:4326',     
             'EPSG:3857')),
-          name: 'Bike parking'
+          name: 'Fellow Cyclist'
         });
         iconFeatures.push(iconFeature);
       }

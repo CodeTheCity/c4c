@@ -20,7 +20,7 @@
 <html lang="en">
 
 <head>
-  <title>Bootstrap Case</title>
+  <title>Cyclists4Cyclists</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="c4c.css">
@@ -69,11 +69,7 @@
     <h1>Welcome to cyclists4cyclists!</h1>
 <br>
  
-    <div id="map" class="map"></div>
-    <script src="js.js"></script>
 <div class="container">
-        <img src="logo.png" width="50%">
-        <h1>Welcome to cyclists4cyclists!</h1>
         <br>
         <div class="row">
             <div class="col-md-5">
@@ -131,9 +127,12 @@
                 </ul>
             </div>
             <div class="col-md-7">
+
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="#">Find your cycle buddy!</a></li>
                 </ul>
+	    <div id="map" class="map"></div>
+	    <script src="js.js"></script>
             </div>
         </div>
             </div>
